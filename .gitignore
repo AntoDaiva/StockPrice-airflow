@@ -1,0 +1,64 @@
+# .gitignore for a Docker project with Airflow
+
+# Ignore local .env files
+.env
+
+# Ignore Docker Compose override file
+docker-compose.override.yml
+
+# Ignore local database files
+*.sqlite
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore compiled Python files
+__pycache__/
+
+# Ignore system-specific cache
+.cache/
+
+# Ignore Docker image and container files
+*.db
+*.sqlite3
+*.json
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore compiled binary files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local .idea files for JetBrains IDEs
+.idea/
+
+# Airflow-specific entries
+airflow/
+*.cfg
+*.pid
+*.err
+*.log
+
+# Ignore Airflow DAG pycache
+*.pyc
+*.pyo
+*.pyd
+*.pyc/
+
+# Ignore Airflow SQLite database
+airflow.db
+
+# Ignore Airflow logs
+logs/
