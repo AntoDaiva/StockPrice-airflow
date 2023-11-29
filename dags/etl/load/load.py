@@ -33,14 +33,15 @@ def load_price(csv_file, table_name):
             'port': 5432,
             'database': db_name
         }
-        logger.info(f'{db_params}')   
+        logger.info(f'{db_params}')
+        logger.info(f'first row: {df.iloc[0]}')  
 
         # Create a SQLAlchemy engine
         engine = create_engine(f'postgresql+psycopg2://{db_params["user"]}:{db_params["password"]}@{db_params["host"]}:{db_params["port"]}/{db_params["database"]}')
 
         # Insert the DataFrame into the PostgreSQL database, avoiding duplicates
         logger.info(f"Inserting data into {table_name} table")
-        # df.to_sql(table_name, engine, index=False, if_exists='append', index_label=['date', 'symbol'], method='multi', chunksize=1000)
+        df.to_sql(table_name, engine, index=False, if_exists='append', index_label=['date', 'symbol'], method='multi', chunksize=1000)
 
         logger.info("Task completed successfully.")
 

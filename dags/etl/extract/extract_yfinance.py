@@ -18,7 +18,7 @@ def extract_prices():
 
         df = pd.DataFrame(columns=['Symbol','Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits'])
 
-        for symbol in symbols:
+        for symbol in  symbols:
             logger.info(f"Fetching data for symbol: {symbol}")
             stock = yf.Ticker(symbol)
 

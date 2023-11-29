@@ -27,13 +27,6 @@ dag = DAG(
 )
 
 # Define tasks using PythonOperator
-
-task_1 = PythonOperator(
-    task_id='task_1',
-    python_callable=run_extract,
-    dag=dag,
-)
-
 extract_price_task = PythonOperator(
     task_id='extract_price_task',
     python_callable=extract_prices,
@@ -54,6 +47,5 @@ load_price_task = PythonOperator(
 )
 
 # Define the task dependencies
-task_1 >> extract_price_task
 extract_price_task >> transform_price_task
 transform_price_task >> load_price_task

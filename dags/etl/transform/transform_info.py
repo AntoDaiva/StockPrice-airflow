@@ -23,7 +23,9 @@ def get_symbols():
     
     return symbols
 
-def filter_symbols(symbols):
+def filter_symbols():
+    symbols = get_symbols()
+
     # filter stock symbols
     sym_df = pd.read_csv('csv/stock_symbols.csv')
     # Drop rows where the 'symbol' column is in the list
@@ -40,5 +42,4 @@ def filter_symbols(symbols):
     df_filtered.to_csv('csv/stock_info.csv', index=False)
 
 if __name__ == "__main__":
-    symbols = get_symbols()
-    filter_symbols(symbols)
+    filter_symbols()
